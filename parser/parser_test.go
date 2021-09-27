@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"reflect"
 	"testing"
 )
 
@@ -18,12 +17,14 @@ var testCases = []testPair{
 func TestParseChars(t *testing.T) {
 	for _, pair := range testCases {
 		result := ParseChars(pair.input)
-		if reflect.DeepEqual(result, pair.result) {
-			t.Error(
-				"For", pair.input,
-				"expected", pair.result,
-				"got", result,
-			)
+		for i:= 0; i < len(result)-1; i++ {
+			if result[i] != pair.result[i] {
+				t.Error(
+					"For", pair.input,
+					"expected", pair.result,
+					"got", result,
+				)
+			}
 		}
 	}
 }

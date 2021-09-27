@@ -13,11 +13,14 @@ func ParseChars(input string) []string {
 		}
 		if end == true {
 			result = append(result, tempChar)
-			result = append(result, string(char))
+			if char != 10 {
+				result = append(result, string(char))
+			}
 			tempChar = ""
 			end = false
 			index++
 		}
 	}
+	result = append(result, string(input[len(input)-1]))
 	return result
 }

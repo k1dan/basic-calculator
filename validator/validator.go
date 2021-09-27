@@ -13,7 +13,6 @@ func ValidateInput(input string) (string, error) {
 	if !isSequenceValid(input) {
 		return "", customerrors.InvalidSequenceOfCharsError
 	}
-	input = strings.TrimSuffix(input, "\n")
 	return input, nil
 }
 
